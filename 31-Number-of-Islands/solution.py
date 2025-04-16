@@ -9,7 +9,7 @@ class Solution:
 
         island_count = 0
 
-        def bfs(r, c):
+        def dfs(r, c):
             if (
                 r < 0 or c < 0
                 or
@@ -20,16 +20,16 @@ class Solution:
                 grid[r][c] == "0"
             ): return 
             visited.add((r, c))
-            bfs(r-1, c)
-            bfs(r+1, c)
-            bfs(r, c-1)
-            bfs(r, c+1)
+            dfs(r-1, c)
+            dfs(r+1, c)
+            dfs(r, c-1)
+            dfs(r, c+1)
             return
 
         for r in range(rows):
             for c in range(cols):
                 if ((r,c) not in visited and grid[r][c] != "0"):
-                    bfs(r, c)
+                    dfs(r, c)
                     island_count += 1
 
         return island_count
