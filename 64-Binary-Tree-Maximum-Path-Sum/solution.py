@@ -11,10 +11,8 @@ class Solution:
             if not node:
                 return 0
             
-            # dont take LMP if it is negative
             leftMaxPath = max(helper(node.left), 0)
 
-            # dont take RMP if it is negative
             rightMaxPath = max(helper(node.right), 0)
 
             maxIfNodeIsRoot = node.val + leftMaxPath + rightMaxPath
